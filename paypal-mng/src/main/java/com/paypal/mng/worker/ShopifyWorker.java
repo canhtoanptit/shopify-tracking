@@ -124,7 +124,7 @@ public class ShopifyWorker {
                 // created tracking
                 List<Fulfillment> fulfillmentList = shopifyOrder.getFulfillments();
                 if (fulfillmentList != null && !fulfillmentList.isEmpty()) {
-                    log.info("Size of fulfillment {} ", fulfillmentList.size());
+                    log.debug("Size of fulfillment {} ", fulfillmentList.size());
                     List<Tracker> trackers = createTracking(fulfillmentList, orderId, shopifyTransaction, shopifyOrder.getId(),
                         shopifyOrder.getOrderNumber(), shopifyOrder.getName());
                     addTrackingToPaypal(trackers, storeDTO);
