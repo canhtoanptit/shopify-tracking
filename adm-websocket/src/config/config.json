@@ -1,0 +1,19 @@
+{
+  "secret": "NDA4Mzk0MTM3ZTA3Y2U2ZjkzOGY0NWI5Mjg4ZjBhYWIxNTFlZTMwZGMwYzQ4NjNlMWZmOWEyOGMwMjI3NzE4NzkzN2Q2MTUwNTVjMWFjOGU4NTI2MTJjMWEwOWRiM2YwNWU5NTdmYmQ1YWJjNWM3NzYyNWY1NGNiNTcwY2YzMzc=",
+  "db" : {
+    "host": "localhost",
+    "user": "root",
+    "password": "Ab@123456",
+    "database": "shopifym"
+  },
+  "paypal": {
+    "live": {
+      "host": "https://api.paypal.com",
+      "client_id": "",
+      "secret": ""
+    }
+  },
+  "redis": {
+    "host": "localhost"
+  }
+}
