@@ -20,14 +20,13 @@ import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Component
 public class ShopifyWorker {
     private final Logger log = LoggerFactory.getLogger(ShopifyWorker.class);
+
+    private final List<String> PAYPAL_CARRIERS = Arrays.asList("CHINA_POST", "USPS");
 
     private final TrackingService trackingService;
 
@@ -138,7 +137,7 @@ public class ShopifyWorker {
     private void addTrackingToPaypal(List<Tracker> trackers, StoreDTO storeDTO) {
         if (trackers != null && !trackers.isEmpty()) {
             trackers.forEach(tracker -> {
-                if (!"USPS".equals(tracker.getCarrier())) {
+                if (tracker.getCarrier() == null || !PAYPAL_CARRIERS.contains(tracker.getCarrier())) {
                     tracker.setCarrier("USPS");
                 }
             });
