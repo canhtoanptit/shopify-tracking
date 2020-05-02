@@ -137,6 +137,11 @@ public class ShopifyWorker {
 
     private void addTrackingToPaypal(List<Tracker> trackers, StoreDTO storeDTO) {
         if (trackers != null && !trackers.isEmpty()) {
+            trackers.forEach(tracker -> {
+                if (!"USPS".equals(tracker.getCarrier())) {
+                    tracker.setCarrier("USPS");
+                }
+            });
             TrackerList trackerList = new TrackerList();
             trackerList.setTrackerList(trackers);
             String token = redisCacheRepo.getValue(storeDTO.getPaypalId().toString());
